@@ -1,0 +1,11 @@
+console.log('긴급출동'+119);
+console.log('1'+1);
+console.log(+'1024'+1);
+console.log(+true);
+console.log(+false);
+console.log('10'-2);
+console.log('10'*2);
+console.log('10'/2);
+console.log('10'-'2');
+console.log('10'*'2');
+console.log('10'/'2');
