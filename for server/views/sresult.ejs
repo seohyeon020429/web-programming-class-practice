@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>검색 결과</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <%- include('menu.html') %>
+
+  <div class="container mt-4">
+    <h3 class="mb-4">검색 결과</h3>
+
+    <% if (data.length > 0) { %>
+      <table class="table table-hover text-center">
+        <thead>
+          <tr>
+            <th>제목</th>
+            <th>내용</th>
+            <th>작성일</th>
+            <th>이미지</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% data.forEach(function(item) { %>
+            <tr>
+              <td><a href="/content/<%= item.id %>"><%= item.title %></a></td>
+              <td><%= item.content %></td>
+              <td><%= item.date %></td>
+              <td>
+                <% if (item.image_path) { %>
+                  <img src="<%= item.image_path.replace('public', '') %>" width="100">
+                <% } else { %>
+                  이미지 없음
+                <% } %>
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <p>검색 결과가 없습니다.</p>
+    <% } %>
+
+    <a href="/list" class="btn btn-primary mt-3">목록으로 돌아가기</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
